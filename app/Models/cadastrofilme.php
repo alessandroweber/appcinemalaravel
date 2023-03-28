@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class cadastrofilme extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nome_filme',
+        'atores_filme',
+        'data_lancamento_filme',
+        'sinopse_filme',
+        'capa_filme'
+    ];
 }

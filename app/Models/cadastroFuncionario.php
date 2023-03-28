@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class cadastroFuncionario extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'emailfun', 
+        'nomefun', 
+        'senha', 
+        'whatsapp', 
+        'cpf'
+    ];
 }
