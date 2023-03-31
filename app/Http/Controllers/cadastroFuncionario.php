@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\cadastroFuncionario;
+use App\Models\Funcionario;
 
 class cadastroFuncionario extends Controller
 {
-    public function buscaCadastroFuncionario(){
+    public function buscarCadastroFuncionario(){
         return View('cadastroFuncionario');
     }
     public function cadastrarFuncionario(Request $request){
@@ -19,7 +19,7 @@ class cadastroFuncionario extends Controller
             'cpf' => 'string|required'
         ]);
         
-        cadastroFuncionario::create($dadosFuncionario);
+        Funcionario::create($dadosFuncionario);
 
         return Redirect::route('/home');
 
