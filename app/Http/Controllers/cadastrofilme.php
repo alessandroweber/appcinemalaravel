@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
-use App\Model\cadastroFilmeModel;
+use App\Model\Filme;
 
 class cadastroFilme extends Controller
 {
     //construimos o CRUD aqui
 
-    public function buscaCadastroFilme(){
+    public function buscarCadastroFilme(){
         return View('cadastroFilme');
     }
-    public function cadastrarFIlme(Request $request){
+    public function cadastrarFilme(Request $request){
         $dadosFilme = $request->validate([
             'filme' => 'string|required',
             'atores' => 'string|required',
@@ -21,9 +21,9 @@ class cadastroFilme extends Controller
             'capa' => 'string|required',       
         ]);
 
-        cadastroFilmeModel::create($dadosFilme);
+        Filme::create($dadosFilme);
 
-        return Redirect::route('home');
+        return Redirect::route('cadastro-filme');
     }
     
 }
