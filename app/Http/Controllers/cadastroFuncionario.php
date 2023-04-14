@@ -24,4 +24,8 @@ class cadastroFuncionario extends Controller
         return Redirect::route('cadastro-funcionario');
 
     }
+
+    public function buscarFuncionario(){
+        return view('gerenciadorFuncionario');
+    }
 }
