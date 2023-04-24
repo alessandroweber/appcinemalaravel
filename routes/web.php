@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FilmeController;
-use App\Http\Controllers\FuncionarioController;
-use App\Http\Controllers\cadastroSala;
+use App\Http\Controllers\filmeController;
+use App\Http\Controllers\funcionarioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +17,12 @@ use App\Http\Controllers\cadastroSala;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 
-Route::get('/cadastro-filme',[FilmeController::class,'buscarCadastroFilme'])->name('buscar-cadastro-filme');
+Route::get('/cadastro-filme',[filmeController::class,'buscaCadastroFilme'])->name('buscar-cadastro-filme');
+Route::post('/cadastro-filme', [filmeControler::class,'cadastrarFilme'])->name('cadastro-filme');
 
-Route::post('/cadastro-filme', [FilmeController::class,'cadastrarFilme'])->name('cadastro-filme');
-
-Route::get('/cadastro-funcionario',[FuncionarioController::class,'buscarCadastroFuncionario'])->name('buscar-cadastro-funcionario');
-Route::post('/cadastro-funcionario', [FuncionarioController::class,'cadastrarFuncionario'])->name('cadastro-funcionario');
-Route::get('/gerenciar-funcionario', [FuncionarioController::class,'cadastrarFuncionario'])->name('gerenciar-funcionario');
-
+Route::get('/cadastro-funcionario',[funcionarioController::class,'buscarCadastroFuncionario'])->name('buscar-cadastro-funcionario');
+Route::post('/cadastro-funcionario', [funcionarioController::class,'cadastrarFuncionario'])->name('cadastro-funcionario');
+Route::get('/gerenciar-funcionario', [funcionarioController::class,'MostrarGerenciadorFuncionario'])->name('gerenciar-funcionario');
