@@ -24,6 +24,9 @@
     </tr>
   </thead>
   <tbody>
+    @if(empty($-get['nomefun']))
+
+    @else
     @foreach($dadosfuncionario as $dadosfuncionarios)
     <tr>
       <th scope="row">{{$dadosfuncionarios->id}}</th>
